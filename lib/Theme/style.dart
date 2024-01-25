@@ -6,15 +6,15 @@ ThemeData appTheme() {
   final Color primary = Color(0xFF2B586E);
   final Color defaultTextColor = Color(0xFFf8fbfc);
   final Color forgotcolor = Color(0xFF74AEC9);
-  final Color btncolor= Color(0xFF142933);
+  final Color btncolor = Color(0xFF142933);
+  final Color hinttextcolor = Color(0xFF817E7E);
 
   return ThemeData(
     primaryColor: defaultTextColor,
     shadowColor: forgotcolor,
-  buttonTheme: ButtonThemeData(
-    buttonColor: btncolor
-  ),
+    buttonTheme: ButtonThemeData(buttonColor: btncolor),
     scaffoldBackgroundColor: primary,
+    hintColor: hinttextcolor,
     textTheme: TextTheme(
       bodyLarge: TextStyle(
         color: defaultTextColor,

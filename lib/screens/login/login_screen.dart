@@ -1,6 +1,5 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_apartmentmanagementsystem_1/screens/login/components/widgets/text_field_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,6 +9,13 @@ class LoginScreen extends StatefulWidget {
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
+
+TextEditingController emailcontroller = TextEditingController();
+TextEditingController passwordcontroller = TextEditingController();
+
+
+
+
 
 class _LoginScreenState extends State<LoginScreen> {
   @override
@@ -55,9 +61,8 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Form(
-              
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -67,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: 2.h,
                 ),
-                TextFieldWidget(),
+                TextFieldWidget(controller:emailcontroller,type: TextInputType.emailAddress,hinttext: 'abc@gmail.com',),
                 SizedBox(
                   height: 12.h,
                 ),
@@ -78,34 +83,44 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: 2.h,
                 ),
-                TextFieldWidget(),
+                TextFieldWidget(controller: passwordcontroller,type: TextInputType.text,hinttext: "*****",),
                 SizedBox(
                   height: 12.h,
                 ),
+                
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   // crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                  Container(
-                    width: 20.w,
-                    height: 17.h,
-                    
-                    margin: EdgeInsets.only(right: 4.w),
-                    decoration: BoxDecoration(
-                      color: theme.primaryColor,
-                      borderRadius: BorderRadius.circular(4)
+                    Container(
+                                  height: 16.h,
+                                  width: 16.w,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4)
+                                  ),
+                                  child: Theme(
+                                    data: ThemeData(
+                                        unselectedWidgetColor:
+                                            Color(0xff00C8E8)),
+                                    child: Checkbox(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(4)
+                                      ),
+                                        activeColor: Colors.yellow,
+                                        fillColor:MaterialStatePropertyAll(theme.primaryColor) ,
+                                        value: false,
+                                        onChanged:  (value) {},
+                  
+                                    )
+                                    )),
+                                    SizedBox(width: 8.w,),
+                    Text(
+                      "Remember me",
+                      style: theme.textTheme.bodySmall!.copyWith(
+                          fontSize: 12.sp, fontWeight: FontWeight.w600),
                     ),
-                    
-                  ),
-                 
-                    
-                      Text(
-                          "Remember me",
-                          style: theme.textTheme.bodySmall!.copyWith(
-                              fontSize: 12.sp, fontWeight: FontWeight.w600),
-                        ),
-                        Spacer(),
-                         Container(
+                    Spacer(),
+                    Container(
                       decoration: BoxDecoration(
                           border: Border(
                               bottom: BorderSide(color: theme.shadowColor))),
@@ -119,11 +134,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     //   // mainAxisAlignment: MainAxisAlignment.start,
                     //   // crossAxisAlignment: CrossAxisAlignment.center,
                     //   children: [
-                      
-                      
+
                     //   ],
                     // ),
-                   
+
                     // Column(
                     //   children: [
                     //     Text(
@@ -133,28 +147,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     //       ),
                     //     )
                     //   ],
-                  
                   ],
                 ),
-                  SizedBox(
+                SizedBox(
                   height: 32.h,
                 ),
-              SizedBox(
+                SizedBox(
                   height: 40.h,
                   width: 312.w,
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF142933),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4))
-                      
-                    ),
-                    child: Text("Login",
-                    style: theme.textTheme.bodySmall,
+                        backgroundColor: Color(0xFF142933),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4))),
+                    child: Text(
+                      "Login",
+                      style: theme.textTheme.bodySmall,
                     ),
                   ),
                 )
-
               ],
             )),
           )
