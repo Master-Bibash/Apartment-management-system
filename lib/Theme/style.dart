@@ -12,6 +12,7 @@ ThemeData appTheme() {
   return ThemeData(
     primaryColor: defaultTextColor,
     shadowColor: forgotcolor,
+    
     buttonTheme: ButtonThemeData(buttonColor: btncolor),
     scaffoldBackgroundColor: primary,
     hintColor: hinttextcolor,
