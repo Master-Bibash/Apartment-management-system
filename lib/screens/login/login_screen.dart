@@ -57,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Form(
+              // autovalidateMode: AutovalidateMode.onUserInteraction,
                 key: globalKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -70,13 +71,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 2.h,
                     ),
                     TextFieldWidget(
+                      fieldName: 'email',
                       controller: emailcontroller,
                       type: TextInputType.emailAddress,
-                      hinttext: 'abc@gmail.com',
+                      hinttext: 'johncarter@gmail.com',
 
                        valid: (value) {
                         if (value!.isEmpty) {
-                          return "fields cannot be empty";
+                          return "Email cannot be empty";
                         }
                         return '';
                       },
@@ -92,15 +94,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 2.h,
                     ),
                     TextFieldWidget(
+                      fieldName: 'password',
                       valid: (value) {
                         if (value!.isEmpty) {
-                          return "fields cannot be empty";
+                          return "password cannot be empty";
                         }
                         return '';
                       },
                       controller: passwordcontroller,
                       type: TextInputType.text,
-                      hinttext: "*****",
+                      hinttext: "********",
                     ),
                     SizedBox(
                       height: 12.h,
