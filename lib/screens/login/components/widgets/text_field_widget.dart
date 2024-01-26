@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_apartmentmanagementsystem_1/screens/login/components/widgets/Cubit/border_cubit.dart';
+import 'package:flutter_apartmentmanagementsystem_1/screens/login/components/widgets/Bloc/inpuit_user_bloc.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,18 +25,14 @@ class TextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     print('build');
     ThemeData theme = Theme.of(context);
-    String data;
 
     return BlocBuilder<FormFieldCubit, Map<String, FormFieldStatus>>(
       bloc: _formFieldCubit,
       builder: (context, state) {
         return TextFormField(
           onChanged: (value) {
-            print("state is ${state[fieldName]?.name}");
+
             _formFieldCubit.updateField(fieldName, value);
-            data = value.toString();
-            // data = value.toString();
-            if (data.isEmpty) {}
           },
           validator: valid,
           textAlign: TextAlign.start,
@@ -55,16 +52,16 @@ class TextFieldWidget extends StatelessWidget {
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(4),
               borderSide: BorderSide(
-                color: state[fieldName]?.name == FormFieldStatus.empty
+                color: controller.text.isEmpty 
                     ? Colors.red
                     : Colors.white,
-                width: 3.w,
+                width: 2.w,
               ),
             ),
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(4),
               borderSide: BorderSide(
-                color: state[fieldName]?.name == FormFieldStatus.empty
+                color:  controller.text.isEmpty == FormFieldStatus.empty
                     ? Colors.red
                     : Colors.white,
                 width: 3.w,
@@ -79,7 +76,7 @@ class TextFieldWidget extends StatelessWidget {
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(4),
               borderSide: BorderSide(
-                color: state[fieldName]?.name == FormFieldStatus.empty
+                color:  controller.text.isEmpty == FormFieldStatus.empty
                     ? Colors.red
                     : Colors.white,
                 width: 3.w,
