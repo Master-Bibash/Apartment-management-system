@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Form(
-              // autovalidateMode: AutovalidateMode.onUserInteraction,
+                // autovalidateMode: AutovalidateMode.onUserInteraction,
                 key: globalKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -75,8 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: emailcontroller,
                       type: TextInputType.emailAddress,
                       hinttext: 'johncarter@gmail.com',
-
-                       valid: (value) {
+                      valid: (value) {
                         if (value!.isEmpty) {
                           return "Email cannot be empty";
                         }
@@ -177,8 +176,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: ElevatedButton(
                         onPressed: () {
                           if (globalKey.currentState!.validate()) {
+                            Navigator.pushNamed(context, '/history-log');
                             print("done");
                           }
+                                                      Navigator.pushNamed(context, '/history-log');
+
                           return print("npew");
                         },
                         style: ElevatedButton.styleFrom(

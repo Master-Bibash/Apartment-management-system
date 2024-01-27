@@ -12,6 +12,12 @@ ThemeData appTheme() {
   return ThemeData(
     primaryColor: defaultTextColor,
     shadowColor: forgotcolor,
+    appBarTheme: AppBarTheme(
+      color: primary,
+      iconTheme: IconThemeData(
+        color: defaultTextColor
+      )
+    ),
     
     buttonTheme: ButtonThemeData(buttonColor: btncolor),
     scaffoldBackgroundColor: primary,
